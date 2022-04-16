@@ -22,9 +22,9 @@ export const Title = styled(Link).attrs({
   font-weight: var(--fw-bold);
 `;
 
-export const ModeSwitcher = styled.div`
+export const ThemeSwitcher = styled.div`
   color: var(--colors-text);
   font-size: var(--fs-sm);
   cursor: pointer;
-  text-transform: capitalize;
+  text-transform: capitalize; // большая буква в названии темы))
 `;
