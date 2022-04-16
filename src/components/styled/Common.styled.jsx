@@ -6,21 +6,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #2bbb;
-    color: #fff;
-    line-height: 1.6;
-  }
 `;
 
 export default GlobalStyle;
 
 export const Container = styled.div`
-  max-width: 768px;
-  margin: auto;
-  padding: 0 20px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
 `;
 
 export const Card = styled.div`
