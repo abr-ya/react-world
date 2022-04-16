@@ -17,6 +17,14 @@ export const Container = styled.div`
   padding: 0 2rem;
 `;
 
+export const Wrapper = styled.main`
+  padding: 2rem 0;
+
+  @media (min-width: 767px) {
+    padding: 4rem 0;
+  }
+`;
+
 export const Card = styled.div`
   background-color: #fff;
   color: #333;

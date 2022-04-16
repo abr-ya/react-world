@@ -15,6 +15,7 @@ Button.defaultProps = {
   version: 'primary',
   type: 'button',
   isDisabled: false,
+  style: {},
 };
 
 Button.propTypes = {
@@ -22,6 +23,8 @@ Button.propTypes = {
   version: PropTypes.string,
   type: PropTypes.string,
   isDisabled: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  style: PropTypes.object,
 };
 
 export default Button;

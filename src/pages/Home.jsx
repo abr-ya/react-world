@@ -1,15 +1,17 @@
-import { Container, Card } from '../components/styled/Common.styled';
+import { Container, Wrapper } from '../components/styled/Common.styled';
+import Form from '../components/Form';
 
 function Home() {
-  console.log('first!');
+  const formHandler = (value) => {
+    console.log(value);
+  };
 
   return (
-    <Container>
-      <Card>
-        <h1>Home page</h1>
-        <p>Простой стартер: CRA + Styled Components + Router</p>
-      </Card>
-    </Container>
+    <Wrapper>
+      <Container>
+        <Form changeHandler={formHandler} />
+      </Container>
+    </Wrapper>
   );
 }
 
