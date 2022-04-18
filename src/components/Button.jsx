@@ -2,10 +2,17 @@ import PropTypes from 'prop-types';
 import { StyledButton } from './styled/Common.styled';
 
 function Button({
-  children, version, type, isDisabled, style,
+  // eslint-disable-next-line react/prop-types
+  children, version, type, isDisabled, style, onClick,
 }) {
   return (
-    <StyledButton type={type} disabled={isDisabled} version={version} style={style}>
+    <StyledButton
+      type={type}
+      disabled={isDisabled}
+      version={version}
+      style={style}
+      onClick={onClick}
+    >
       {children}
     </StyledButton>
   );
