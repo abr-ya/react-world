@@ -5,10 +5,8 @@ import Home from './Home';
 import { ALL_COUNTRIES } from '../services/countries';
 import { prepareCountry } from '../utils';
 
-// eslint-disable-next-line react/prop-types
 function HomeContainer({ countries, setCountries }) {
   useEffect(() => {
-    // eslint-disable-next-line react/prop-types
     if (!countries.length) {
       axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data.map(prepareCountry)));
     }
@@ -20,7 +18,14 @@ function HomeContainer({ countries, setCountries }) {
 }
 
 HomeContainer.propTypes = {
-  countries: PropTypes.arrayOf({}).isRequired,
+  countries: PropTypes.arrayOf(PropTypes.shape({
+    img: PropTypes.string,
+    name: PropTypes.string,
+    info: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    })),
+  })).isRequired,
   setCountries: PropTypes.func.isRequired,
 };
 
