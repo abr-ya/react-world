@@ -11,7 +11,7 @@ function Form({ changeHandler }) {
 
   useEffect(() => {
     const regionValue = region?.value || '';
-    changeHandler({ search, regionValue });
+    changeHandler({ search, region: regionValue });
   }, [search, region]);
 
   const selectOptions = [

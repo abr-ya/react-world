@@ -2,6 +2,8 @@
 export const prepareCountry = (c) => ({
   img: c.flags.png,
   name: c.name,
+  // toDo: здесь пока дубль со свойствами! не знаю: нужен ли этот массив свойств вложенный?
+  region: c.region,
   info: [
     {
       title: 'Population',
