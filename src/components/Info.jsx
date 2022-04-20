@@ -5,8 +5,18 @@ import {
   ListGroup, List, ListItem,
 } from './styled/Info.styled';
 
+function Item({ title, value }) {
+  return (
+    <ListItem>
+      <b>{title}</b>
+      {`: ${value}`}
+    </ListItem>
+  );
+}
+
 // ToDo: вернуть propsValidation!
 function Info({ data }) {
+  // eslint-disable-next-line no-console
   console.log(data);
   const {
     name,
@@ -16,6 +26,8 @@ function Info({ data }) {
     region,
     subregion,
     capital,
+    currencies,
+    languages,
   } = data;
 
   return (
@@ -26,36 +38,15 @@ function Info({ data }) {
         <InfoTitle>{name}</InfoTitle>
         <ListGroup>
           <List>
-            <ListItem>
-              <b>Native Name:</b>
-              {' '}
-              {nativeName}
-            </ListItem>
-            <ListItem>
-              <b>Population</b>
-              {' '}
-              {population}
-            </ListItem>
-            <ListItem>
-              <b>Region:</b>
-              {' '}
-              {region}
-            </ListItem>
-            <ListItem>
-              <b>Sub Region:</b>
-              {' '}
-              {subregion}
-            </ListItem>
-            <ListItem>
-              <b>Capital:</b>
-              {' '}
-              {capital}
-            </ListItem>
+            <Item title="Population" value={population} />
+            <Item title="Region" value={region} />
+            <Item title="Subregion" value={subregion} />
+            <Item title="Capital" value={capital} />
           </List>
           <List>
-            <ListItem>
-              <b>Native Name:</b>
-            </ListItem>
+            <Item title="Native Name" value={nativeName} />
+            <Item title="Currencies" value={currencies.map((el) => el.code).join(', ')} />
+            <Item title="Languages" value={languages.map((el) => el.name).join(', ')} />
           </List>
         </ListGroup>
       </div>
