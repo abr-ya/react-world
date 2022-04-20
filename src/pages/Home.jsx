@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Container, Wrapper } from '../components/styled/Common.styled';
+import { Container } from '../components/styled/Common.styled';
 import { CardsList } from '../components/styled/Card.styled';
 import Form from '../components/Form';
 import Card from '../components/Card';
@@ -12,7 +12,7 @@ function Home({ countries, filterHandler }) {
   };
 
   return (
-    <Wrapper>
+    <>
       <Container>
         <Form changeHandler={filterHandler} />
       </Container>
@@ -31,7 +31,7 @@ function Home({ countries, filterHandler }) {
           }
         </CardsList>
       </Container>
-    </Wrapper>
+    </>
   );
 }
 

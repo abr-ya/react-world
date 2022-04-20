@@ -1,4 +1,4 @@
-import styled, { css, createGlobalStyle } from 'styled-components/macro';
+import styled, { createGlobalStyle } from 'styled-components/macro'; // css
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -17,7 +17,7 @@ export const Container = styled.div`
   padding: 0 2rem;
 `;
 
-export const Wrapper = styled.main`
+export const StyledMain = styled.main`
   padding: 2rem 0;
 
   @media (min-width: 767px) {
@@ -36,7 +36,6 @@ export const Card = styled.div`
 
 export const StyledHeader = styled.header`
   background-color: rgba(0,0,0,0.4);
-  color: #ff6a95;
   height: 70px;
   width: 100%;
   display: flex;
@@ -47,24 +46,29 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledButton = styled.button`
-  border: 0;
-  border-radius: 8px;
-  color: #fff;
-  width: 100px;
-  height: 40px;
+  padding: 0 1rem;
+  background-color: var(--colors-ui-base);
+  box-shadow: var(--shadow);
+  line-height: 2.5;
+  border-radius: var(--radii);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text);
   cursor: pointer;
 
-  ${(props) => props.version === 'primary' && css`background-color: #202142;`}
-  ${(props) => props.version === 'secondary' && css`background-color: #ff6a95;`}
-
   &:hover {
-    transform: scale(0.98);
+    transform: scale(0.9);
     opacity: 0.9;
   }
-
-  &:disabled {
-    background-color: #cccccc;
-    color: #333;
-    cursor: auto;
-  }
 `;
+
+// ${(props) => props.version === 'primary' && css`background-color: #202142;`}
+// ${(props) => props.version === 'secondary' && css`background-color: #ff6a95;`}
+
+// &:disabled {
+//   background-color: #cccccc;
+//   color: #333;
+//   cursor: auto;
+// }
