@@ -51,7 +51,7 @@ export const ListItem = styled.li`
   }
 `;
 
-export const Meta = styled.div`
+export const StyledBorders = styled.div`
   margin-top: 3rem;
   display: flex;
   gap: 1.5rem;

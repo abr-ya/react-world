@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
-import { searchByCountry } from '../services/countries';
+import { searchByCountry, filterByCode } from '../services/countries';
 import { Container } from '../components/styled/Common.styled';
 import Button from '../components/Button';
 import Info from '../components/Info';
@@ -13,7 +13,18 @@ function Country() {
   const [country, setCountry] = useState(null);
 
   useEffect(() => {
-    axios.get(searchByCountry(name)).then(({ data }) => setCountry(data[0]));
+    axios.get(searchByCountry(name)).then(({ data }) => {
+      setCountry(data[0]);
+      if (data[0].borders.length) {
+        axios
+          .get(filterByCode(data[0].borders))
+          // eslint-disable-next-line no-shadow
+          .then(({ data }) => setCountry((prev) => ({
+            ...prev,
+            bordersNames: data.map((c) => c.name),
+          })));
+      }
+    });
   }, [name]);
 
   const backHandler = (e) => {

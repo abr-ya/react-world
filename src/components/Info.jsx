@@ -4,6 +4,7 @@ import {
   StyledInfo, InfoImage, InfoTitle,
   ListGroup, List, ListItem,
 } from './styled/Info.styled';
+import InfoBorders from './InfoBorders';
 
 function Item({ title, value }) {
   return (
@@ -28,6 +29,7 @@ function Info({ data }) {
     capital,
     currencies,
     languages,
+    bordersNames,
   } = data;
 
   return (
@@ -49,6 +51,7 @@ function Info({ data }) {
             <Item title="Languages" value={languages.map((el) => el.name).join(', ')} />
           </List>
         </ListGroup>
+        {bordersNames && <InfoBorders borders={bordersNames} />}
       </div>
     </StyledInfo>
   );
