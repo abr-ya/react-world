@@ -12,6 +12,8 @@ function Country() {
   const navigate = useNavigate();
   const [country, setCountry] = useState(null);
 
+  const goToHandler = (n) => navigate(n);
+
   useEffect(() => {
     axios.get(searchByCountry(name)).then(({ data }) => {
       setCountry(data[0]);
@@ -29,7 +31,7 @@ function Country() {
 
   const backHandler = (e) => {
     e.preventDefault();
-    navigate('/');
+    navigate(-1);
   };
 
   return (
@@ -40,7 +42,7 @@ function Country() {
         Back
       </Button>
       {country?.name
-        && <Info data={country} />}
+        && <Info data={country} goToHandler={goToHandler} />}
     </Container>
   );
 }

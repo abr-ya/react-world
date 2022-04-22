@@ -16,7 +16,7 @@ function Item({ title, value }) {
 }
 
 // ToDo: вернуть propsValidation!
-function Info({ data }) {
+function Info({ data, goToHandler }) {
   // eslint-disable-next-line no-console
   console.log(data);
   const {
@@ -51,7 +51,7 @@ function Info({ data }) {
             <Item title="Languages" value={languages.map((el) => el.name).join(', ')} />
           </List>
         </ListGroup>
-        {bordersNames && <InfoBorders borders={bordersNames} />}
+        {bordersNames && <InfoBorders borders={bordersNames} goToHandler={goToHandler} />}
       </div>
     </StyledInfo>
   );

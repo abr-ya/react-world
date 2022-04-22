@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import { StyledBorders, TagGroup, Tag } from './styled/Info.styled';
 
-function InfoBorders({ borders }) {
+function InfoBorders({ borders, goToHandler }) {
   const clickHandler = (name) => {
-    // eslint-disable-next-line no-console
-    console.log('click', name);
-    // () => push(`/country/${name}`)
+    goToHandler(`/country/${name}`);
   };
 
   return (
@@ -29,6 +27,7 @@ function InfoBorders({ borders }) {
 InfoBorders.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   borders: PropTypes.array.isRequired,
+  goToHandler: PropTypes.func.isRequired,
 };
 
 export default InfoBorders;
